@@ -44,7 +44,7 @@ pnpm dev
 
 - `Feed`:
 
-<img src="https://i.postimg.cc/RC3ZM83j/Captura-de-pantalla-2023-03-20-a-la-s-1-48-42.png"/>
+<img src="http://imgfz.com/i/3CS49nd.png"/>
 
 ## Acerca de Next.js
 
