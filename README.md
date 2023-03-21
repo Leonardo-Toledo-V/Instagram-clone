@@ -56,15 +56,16 @@ pnpm dev
 
 
 # Previsualización:
+## Login
 
-## Feed View
+![Login view of Instagram Clone](http://imgfz.com/i/AGjqiPB.png)
+
+
+## Register
+
+![Register view of Instagram Clone](http://imgfz.com/i/F86gsCa.png)
+
+
+## Feed
 
 ![Feed view of Instagram Clone](http://imgfz.com/i/3CS49nd.png)
-
-## Acerca de Next.js
-
-Para aprender más acerca de  Next.js, puedes leer de acá abajo la documentación:
-
-- [Next.js Documentation](https://nextjs.org/docs) - Aprende acerca de Next.js
-
-Puedes revisar [el repositorio de GitHub de Next.js](https://github.com/vercel/next.js/).
