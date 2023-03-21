@@ -3,7 +3,7 @@ import {
   SearchIcon,
   PlusCircleIcon,
   UserGroupIcon,
-  MoonIcon,
+  HeartIcon,
   PaperAirplaneIcon,
   MenuIcon,
   HomeIcon,
@@ -14,16 +14,9 @@ function Header() {
     <div className='shadow-md border-b bg-white sticky top-0 z-50'>
       {/* Left starts */}
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
-        <div className="relative hidden sm:inline-grid w-24 cursor-pointer ">
+        <div className="relative inline-grid w-24 cursor-pointer ">
           <Image
             src="https://links.papareact.com/ocw"
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
-        <div className="relative w-7 sm:hidden flex-shrink-0 cursor-pointer ">
-          <Image
-            src="https://links.papareact.com/jjm"
             layout="fill"
             objectFit="contain"
           />
@@ -56,7 +49,7 @@ function Header() {
           justify-center animate-pulse text-white' >3</div>
         </div>
         <UserGroupIcon className="itemsBtn"/>
-        <MoonIcon className="itemsBtn"/>
+        <HeartIcon className="itemsBtn"/>
         {/* Here we gonna add the profile photo with the API */}
         <img src='https://imgs.search.brave.com/r_AOF16zDVYdBgie8b-FGNDWIVxrbBlcz4M1t4P6IAs/rs:fit:735:929:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9kNi9jNi84MC9k/NmM2ODA1Zjk4YmYz/YTkyZjI1YWVkM2U1/ODUyOTI0OC5qcGc' 
         width='40px'
