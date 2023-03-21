@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import Header from '@/components/feed/Header'
 import Head from 'next/head'
 import Feed from '../components/Feed'
 

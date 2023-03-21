@@ -4,7 +4,7 @@ function MiniProfile() {
   const router = useRouter();
   const handleClick = async (e) => {
     e.preventDefault()
-    router.push('/login');
+    router.push('/');
   }
 
 

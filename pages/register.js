@@ -82,7 +82,7 @@ function register() {
         </div>
         <div className="mt-[10px] text-[14px] bg-white border-[#dbdbdb] h-[63px] border gap-x-1 flex items-center justify-center">
           Have an account?{" "}
-          <Link href="/login" className="font-semibold text-[#0095f6]">
+          <Link href="/" className="font-semibold text-[#0095f6]">
             Log in
           </Link>
         </div>
