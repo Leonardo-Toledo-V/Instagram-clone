@@ -1,7 +1,7 @@
-import MiniProfile from "@/components/MiniProfile"
-import Posts from "@/components/Posts"
-import Stories from "@/components/Stories"
-import Suggestions from "@/components/Suggestions"
+import MiniProfile from "@/components/feed/MiniProfile"
+import Posts from "@/components/feed/Posts"
+import Stories from "@/components/feed/Stories"
+import Suggestions from "@/components/feed/Suggestions"
 
 function Feed() {
   return (

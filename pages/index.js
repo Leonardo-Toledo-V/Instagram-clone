@@ -1,6 +1,5 @@
-import Header from '@/components/Header'
 import Head from 'next/head'
-import Feed from '../components/Feed'
+import Login from '../components/Login'
 
 export default function Home() {
   return (
@@ -12,14 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/instagram.ico" />
       </Head>
-      {/* Header */}
-      <Header></Header>
-
-      {/* Feed */}
-      <Feed/>
-
-      {/* Modal */}
-
+      <Login/>
     </div>
   )
 }

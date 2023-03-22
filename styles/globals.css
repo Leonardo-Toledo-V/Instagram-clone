@@ -20,4 +20,8 @@
         @apply h-7 w-6 hover:scale-125 cursor-pointer 
         transition-all duration-150 ease-out
     }
+    .bg-phone{
+        @apply
+        bg-[url('https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png')]
+    }
 };
