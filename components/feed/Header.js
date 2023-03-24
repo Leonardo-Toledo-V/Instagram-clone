@@ -8,8 +8,12 @@ import {
   MenuIcon,
   HomeIcon,
 } from "@heroicons/react/outline";
+import { Fragment, useState } from "react";
+import Modal from "../Modal";
+import Upload from "../Upload";
 
 function Header() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className='shadow-md border-b bg-white sticky top-0 z-50'>
       {/* Left starts */}
@@ -38,7 +42,14 @@ function Header() {
         {/* Right */}
         <div className='flex items-center justify-end space-x-4'>
         <HomeIcon className='itemsBtn'/>
-        <PlusCircleIcon className="itemsBtn"/>
+        
+        <Fragment>
+        <PlusCircleIcon className="itemsBtn" onClick={()=>setShowModal(true)}/>
+        <Modal isVisible={showModal} onClose={()=> setShowModal(false)}>
+          <Upload></Upload>
+        </Modal>
+        </Fragment>
+        
         {/* This MenuIcon doesn't works but I'm going to add the implementation */}
         <MenuIcon className='h-6 sm:hidden cursor-pointer'/>
         <div className='relative itemsBtn'>

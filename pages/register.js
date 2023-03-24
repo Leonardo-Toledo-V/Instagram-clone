@@ -4,16 +4,58 @@ import Input from "@/components/login/Input";
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
-
+import axios from 'axios';
+import Swal from 'sweetalert2'
+import { useRouter } from "next/router";
 
 
 function register() {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
+  
 
-  const enable = email && username && fullName && password;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url='http://localhost:3030/auth/signup';
+    console.log(avatar);
+
+    axios.post(url,{
+      username: username,
+      email: email,
+      password: password,
+      name: fullName,
+      avatar: avatar
+    }).then(function (response){
+      const status = response.data.status;
+        if(status){
+          Swal.fire({
+            icon: 'success',
+            title: 'User created successfully',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          router.push('/');
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'User or email are invalid',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+
+
+  const enable = email && username && fullName && password.length >= 8;
 
 
   return (
@@ -38,7 +80,7 @@ function register() {
             <span className="text-[14px]">Log in with Facebook</span>
           </a>
           <Or />
-          <form  className="mt-4">
+          <form onSubmit={handleSubmit}  className="mt-4">
             <Input
               type="text"
               value={email}
@@ -62,6 +104,12 @@ function register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               label="Password"
+            />
+             <Input
+              type="file"
+              accept=".jpg, .png, .jpeg"
+              value={avatar}
+              onChange={(e) => setAvatar(e.target.value)}
             />
             <p className="text-center text-[12px] text-[#8e8e8e] mt-3 mb-5">
               People who use our service may have uploaded your contact

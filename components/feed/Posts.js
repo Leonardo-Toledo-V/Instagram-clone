@@ -3,24 +3,48 @@ import Post from "./Post";
 const testData =[
     {
         id: '123',
-        username: 'leomessi',
-        userImg : 'https://imgs.search.brave.com/r_AOF16zDVYdBgie8b-FGNDWIVxrbBlcz4M1t4P6IAs/rs:fit:735:929:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9kNi9jNi84MC9k/NmM2ODA1Zjk4YmYz/YTkyZjI1YWVkM2U1/ODUyOTI0OC5qcGc',
-        img: 'https://images.unsplash.com/photo-1583225214464-9296029427aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=650&q=80',
+        username: 'andresmandujano',
+        userImg : 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-6/331489039_1349031992342495_5692036883870020386_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=yIwg_kJ899kAX8cDtnp&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfC-CvJUQIAsWBEtK5S-NobbkcBA-fEK-NByXXySc4xMTw&oe=641E5037',
+        img: 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-6/337135229_203175189064905_5559319480787418650_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=uLPEWStRYA4AX-ztZ4U&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfDRzizKT8al2KXoBOG9OMeiryMFlvkDMFnzuqXKooPUhA&oe=641DF4EF',
         description: 'I am the fucking best player bitches'
     },
     {
         id: '234',
-        username: 'leomessi',
-        userImg : 'https://imgs.search.brave.com/r_AOF16zDVYdBgie8b-FGNDWIVxrbBlcz4M1t4P6IAs/rs:fit:735:929:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9kNi9jNi84MC9k/NmM2ODA1Zjk4YmYz/YTkyZjI1YWVkM2U1/ODUyOTI0OC5qcGc',
-        img: 'https://imgs.search.brave.com/7SFO3dyqyVvJTo2hhABtPo3GcDUSZQGGQtW9rE0PiIo/rs:fit:1200:805:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMudGhlc3Rhci5j/b20vVHIzUHRFZjQt/dFBxNUNZY0lzOFpJ/OHh2TXdnPS8xMjAw/eDgwNS9zbWFydC9m/aWx0ZXJzOmNiKDI3/MDAwNjEwMDApL2h0/dHBzOi8vd3d3LnRo/ZXN0YXIuY29tL2Nv/bnRlbnQvZGFtL3Ro/ZXN0YXIvc3BvcnRz/L3NvY2Nlci8yMDEz/LzAxLzA3L2xpb25l/bF9tZXNzaV93aW5z/X2ZpZmFfd29ybGRf/cGxheWVyX29mX3Ro/ZV95ZWFyL2xpb25l/bG1lc3NpLmpwZWc',
-        description: 'I am the fucking best player bitches'
+        username: 'alonsomacias',
+        userImg : 'https://avatars.githubusercontent.com/u/58948929?v=4',
+        img: 'https://imgs.search.brave.com/8v3UJoInAO4CH1aonXPcwpEm1X33OG616W1jgzld8LE/rs:fit:1200:1080:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaGRxd2FsbHMu/Y29tL3dhbGxwYXBl/cnMvaS1sb3ZlLWxp/bnV4LmpwZw',
+        description: 'I am falling in love with Linux'
     },
     {
         id: '345',
-        username: 'leomessi',
-        userImg : 'https://imgs.search.brave.com/r_AOF16zDVYdBgie8b-FGNDWIVxrbBlcz4M1t4P6IAs/rs:fit:735:929:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9kNi9jNi84MC9k/NmM2ODA1Zjk4YmYz/YTkyZjI1YWVkM2U1/ODUyOTI0OC5qcGc',
-        img: 'https://imgs.search.brave.com/7SFO3dyqyVvJTo2hhABtPo3GcDUSZQGGQtW9rE0PiIo/rs:fit:1200:805:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMudGhlc3Rhci5j/b20vVHIzUHRFZjQt/dFBxNUNZY0lzOFpJ/OHh2TXdnPS8xMjAw/eDgwNS9zbWFydC9m/aWx0ZXJzOmNiKDI3/MDAwNjEwMDApL2h0/dHBzOi8vd3d3LnRo/ZXN0YXIuY29tL2Nv/bnRlbnQvZGFtL3Ro/ZXN0YXIvc3BvcnRz/L3NvY2Nlci8yMDEz/LzAxLzA3L2xpb25l/bF9tZXNzaV93aW5z/X2ZpZmFfd29ybGRf/cGxheWVyX29mX3Ro/ZV95ZWFyL2xpb25l/bG1lc3NpLmpwZWc',
-        description: 'I am the fucking best player bitches'
+        username: 'mauriciocastillo',
+        userImg : 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-1/335667895_888637255743920_7384508670379745963_n.jpg?stp=dst-jpg_s480x480&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfD5ODN9VRPUuajUbvmEiw4DqThLH3FVHFAVnw1ho06Q2g&oe=641E2DC3',
+        img: 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-6/335667895_888637255743920_7384508670379745963_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfC3LEUFIOxZ5S-71YGJUrn_SEFYu2Wn0UpW9YsKpAnp3w&oe=641FA485',
+        description: 'Hola a todos'
+    }
+    ,
+    {
+        id: '456',
+        username: 'mauriciocastillo',
+        userImg : 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-1/335667895_888637255743920_7384508670379745963_n.jpg?stp=dst-jpg_s480x480&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfD5ODN9VRPUuajUbvmEiw4DqThLH3FVHFAVnw1ho06Q2g&oe=641E2DC3',
+        img: 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-6/335667895_888637255743920_7384508670379745963_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfC3LEUFIOxZ5S-71YGJUrn_SEFYu2Wn0UpW9YsKpAnp3w&oe=641FA485',
+        description: 'cómo andamos'
+    }
+    ,
+    {
+        id: '567',
+        username: 'mauriciocastillo',
+        userImg : 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-1/335667895_888637255743920_7384508670379745963_n.jpg?stp=dst-jpg_s480x480&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfD5ODN9VRPUuajUbvmEiw4DqThLH3FVHFAVnw1ho06Q2g&oe=641E2DC3',
+        img: 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-6/335667895_888637255743920_7384508670379745963_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfC3LEUFIOxZ5S-71YGJUrn_SEFYu2Wn0UpW9YsKpAnp3w&oe=641FA485',
+        description: 'Me encanta jugar amigos kakaka'
+    }
+    ,
+    {
+        id: '678',
+        username: 'mauriciocastillo',
+        userImg : 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-1/335667895_888637255743920_7384508670379745963_n.jpg?stp=dst-jpg_s480x480&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfD5ODN9VRPUuajUbvmEiw4DqThLH3FVHFAVnw1ho06Q2g&oe=641E2DC3',
+        img: 'https://scontent.ftgz3-1.fna.fbcdn.net/v/t39.30808-6/335667895_888637255743920_7384508670379745963_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=L-5Ny--afCUAX_NgwU_&_nc_ht=scontent.ftgz3-1.fna&oh=00_AfC3LEUFIOxZ5S-71YGJUrn_SEFYu2Wn0UpW9YsKpAnp3w&oe=641FA485',
+        description: 'Me encanta bailar amigos kakaka'
     }
 ]
 
