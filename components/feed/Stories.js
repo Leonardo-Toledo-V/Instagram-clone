@@ -1,8 +1,11 @@
+import ThemeContext from '@/context/ThemeContext';
 import {faker} from '@faker-js/faker';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Story from './Story';
 
 function Stories() {
+
+  const theme = useContext(ThemeContext);
   const [suggestions, setSuggestions] = useState([]);
   /* I'm using faker because i don't have the API yet.
      So, I need to create the interface and I need a model.
@@ -25,9 +28,11 @@ function Stories() {
   }, []);
 
   return (
-    <div className='flex space-x-2 p-6 bg-white 
+    <div className={`flex space-x-2 p-6 bg-white 
     mt-6 border-gray-200 border rounded-sm 
-    overflow-x-scroll scrollbar-thin scrollbar-thumb-slate-300 '>
+    overflow-x-scroll scrollbar-thin scrollbar-thumb-slate-300
+    ${theme ? 
+    'dark:bg-black dark:border-none dark:scrollbar-thumb-zinc-800':''}`}>
       {suggestions.map((profile) => (
         <Story 
           key={profile.id} 

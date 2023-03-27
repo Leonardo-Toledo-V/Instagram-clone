@@ -10,14 +10,13 @@ import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
 
 function Login() {
-
   const ref = useRef();
   const router = useRouter();
-
   const [formData,setFormData] = useState({
     username: '',
     password: ''
   })
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url='http://localhost:3030/auth/login';
@@ -56,8 +55,6 @@ function Login() {
         console.log(error);
       });
   }
-
-
 
   const images = [
     "img1.png",
@@ -124,7 +121,7 @@ function Login() {
               type="text"
               value={formData.username}
               onChange={(e) => setFormData({...formData, username: e.target.value})}
-              label="Phone number, username or email"
+              label="Username or email"
             />
             <Input
               type="password"
@@ -151,7 +148,6 @@ function Login() {
           </form>
         </div>
 
-
         <div className="mt-[10px] text-[14px] bg-white border-[#dbdbdb] h-[63px] border gap-x-1 flex items-center justify-center">
           Don't have an account?{" "}
           <Link href="/register" className="font-semibold text-[#0095f6]">
@@ -164,5 +160,4 @@ function Login() {
 
   )
 }
-
 export default Login;

@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
 import Cookies from 'js-cookie';
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 
 
-function MiniProfile(props) {
+function MiniProfile() {
+  const {user} = useContext(AuthContext)
   const router = useRouter();
   const handleClick = async (e) => {
     e.preventDefault();
@@ -17,7 +20,7 @@ function MiniProfile(props) {
         <img className='rounded-full border p-[2px] w-16 h-16' src='https://imgs.search.brave.com/r_AOF16zDVYdBgie8b-FGNDWIVxrbBlcz4M1t4P6IAs/rs:fit:735:929:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9kNi9jNi84MC9k/NmM2ODA1Zjk4YmYz/YTkyZjI1YWVkM2U1/ODUyOTI0OC5qcGc' alt="profile"
         />
         <div className="flex-1 mx-4">
-        <h2 className='font-bold'>{props.username}</h2>
+        <h2 className='font-bold'>{user}</h2>
             <h3 className='text-sm text-gray-400'> Welcome to Instagram</h3>
         </div>
         <button onClick={handleClick} className='text-blue-400 text-sm font-semibold' >Sign Out</button>

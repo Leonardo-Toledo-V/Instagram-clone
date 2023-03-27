@@ -10,7 +10,7 @@ export async function middleware(request) {
   try {
       await jwtVerify(
       jwt,
-      new TextEncoder().encode("Adolfo es gay")
+      new TextEncoder().encode("Instagram Clone es lo mejor del mundo! :)")
     );
     return NextResponse.next();
   } catch (error) {
