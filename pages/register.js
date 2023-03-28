@@ -1,18 +1,16 @@
 import { AiFillFacebook } from "react-icons/ai";
 import Or from "@/components/login/Or";
 import Input from "@/components/login/Input";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import { useRouter } from "next/router";
-import { AuthContext } from "@/context/AuthContext";
 
 
 function register() {
   const router = useRouter();
-  const {Setuser} = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -33,7 +31,6 @@ function register() {
       avatar: avatar
     }).then(function (response){
       const status = response.data.status;
-       Setuser (response.data.data.username); 
         if(status){
           Swal.fire({
             icon: 'success',

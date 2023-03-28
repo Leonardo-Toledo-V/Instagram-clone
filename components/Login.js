@@ -2,14 +2,16 @@ import Input from "@/components/login/Input";
 import Or from "@/components/login/Or";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AiFillFacebook } from "react-icons/ai";
 import {useRouter } from 'next/router';
 import axios from "axios";
 import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
+import { AuthContext } from "@/context/AuthContext";
 
 function Login() {
+  const {setUser, setAvatarr,setFullName} = useContext(AuthContext);
   const ref = useRef();
   const router = useRouter();
   const [formData,setFormData] = useState({
@@ -26,15 +28,14 @@ function Login() {
       }).then(function (response){
         const status = response.data.status;
         const value = response.data.data.token;
-        const username = response.data.data.username;
+        setUser (response.data.data.username); 
+        setAvatarr(response.data.data.avatar);
+        setFullName(response.data.data.name);
           if(status){
             Cookies.set('token', value, { 
               expires: 1,
               domain: "localhost",
               secure: false,
-            });
-            Cookies.set('tokenUsername', username, { 
-              expires: 1,
             });
             Swal.fire({
               icon: 'success',

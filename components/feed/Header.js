@@ -9,14 +9,21 @@ import {
   HomeIcon,
   SunIcon,
 } from "@heroicons/react/outline";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import Modal from "../Modal";
 import Upload from "../Upload";
 import ThemeContext from "@/context/ThemeContext";
+import { AuthContext } from "@/context/AuthContext";
 
 function Header({addTheme}) {
   const [showModal, setShowModal] = useState(false);
   const theme = useContext(ThemeContext);
+  const {avatar} = useContext(AuthContext);
+
+  const [image, setImage] = useState('');
+  useEffect(() => {
+    setImage(avatar);
+  }, []);
 
 
   const handleTheme=()=>{
@@ -89,7 +96,7 @@ function Header({addTheme}) {
         )}
         
         {/* Here we gonna add the profile photo with the API */}
-        <img src='https://imgs.search.brave.com/r_AOF16zDVYdBgie8b-FGNDWIVxrbBlcz4M1t4P6IAs/rs:fit:735:929:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9kNi9jNi84MC9k/NmM2ODA1Zjk4YmYz/YTkyZjI1YWVkM2U1/ODUyOTI0OC5qcGc' 
+        <img src={image} 
         width='40px'
         height='40px'
         alt='profile' className="h-10 rounded-full cursor-pointer hidden sm:inline-grid" />
