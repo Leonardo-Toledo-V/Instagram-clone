@@ -1,8 +1,9 @@
-import Post from "./Post";
-import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
-const socket = io("http://localhost:3031");
+import { io } from "socket.io-client";
+import config from '../../config.json' assert {type: 'json'}
+import Post from "./Post";
 import Cookies from "js-cookie";
+const socket = io(`${config.protocol}://${config.host}:3031`);
 const token = Cookies.get("token");
 
 

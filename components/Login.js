@@ -9,6 +9,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
 import { AuthContext } from "@/context/AuthContext";
+import config from '../config.json' assert {type: 'json'}
 
 function Login() {
   const {setUser, setAvatarr,setFullName} = useContext(AuthContext);
@@ -21,7 +22,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url='http://localhost:3030/auth/login';
+    const url=`${config.protocol}://${config.host}:3030/auth/login`;
       axios.post(url,{
         email: formData.username,
         password: formData.password,

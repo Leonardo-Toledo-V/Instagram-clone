@@ -7,6 +7,7 @@ import Head from "next/head";
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import { useRouter } from "next/router";
+import config from '../config.json' assert {type: 'json'}
 
 
 function register() {
@@ -21,7 +22,7 @@ function register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = 'http://localhost:3030/auth/signup';
+    const url = `${config.protocol}://${config.host}:3030/auth/signup`;
     const form = new FormData();
     form.append('username', username);
     form.append('name', fullName);
