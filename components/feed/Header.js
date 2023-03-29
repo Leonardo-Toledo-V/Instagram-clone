@@ -32,7 +32,7 @@ function Header({addTheme}) {
 
 
   return (
-    <div className={`shadow-md border-b bg-white sticky top-0 z-50 text-black ${theme ? 'dark:bg-black dark:text-white dark:border-zinc-900' : ''}`}>
+    <div className='shadow-md border-b bg-white sticky top-0 z-50 text-black '>
       {/* Left starts */}
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
         {theme ? (
