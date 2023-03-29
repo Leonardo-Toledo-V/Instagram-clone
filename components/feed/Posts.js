@@ -17,37 +17,25 @@ function Posts() {
         socket.on("POSTS",(msg)=>{
            setTestData(msg.data.records);
         });
+        
+        // Escucha los eventos "Feed" y actualiza los datos
+        socket.on("Feed", (msg)=>{
+            setTestData(prevTestData => [...prevTestData, msg.data.attributes]);
+        });
+        
     },[]);
     
-    socket.on("Feed", (msg)=>{
-        const data = msg
-        return(
-           <div>
-            <Post
-                key={data.data.attributes._id}
-                id={data.data.attributes._id}
-                username={data.data.attributes.username}
-                userImg={data.data.attributes.avatar}
-                img={data.data.attributes.media}
-                description={data.data.attributes.caption}
-              />
-           </div> 
-           
-        );
-    });
-    
-
     return (
         <div>
             {testData.map((post) => (
                 <Post
-                key={post._id}
-                id={post._id}
-                username={post.username}
-                userImg={post.avatar}
-                img={post.media}
-                description={post.caption}
-              />
+                    key={post._id}
+                    id={post._id}
+                    username={post.username}
+                    userImg={post.avatar}
+                    img={post.media}
+                    description={post.caption}
+                />
             ))}
         </div>
     );

@@ -2,7 +2,8 @@ import { EmojiHappyIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { io } from 'socket.io-client';
-const socket = io("http://localhost:3031");
+import config from '../config.json' assert {type: 'json'}
+const socket = io(`${config.protocol}://${config.host}:3031`);
 import Swal from "sweetalert2";
 
 
@@ -26,6 +27,8 @@ export default function Upload() {
       showConfirmButton: false,
       timer: 1500
     });
+    
+
   };
 
 
