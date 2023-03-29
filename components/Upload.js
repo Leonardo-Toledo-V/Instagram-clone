@@ -5,7 +5,6 @@ import { io } from 'socket.io-client';
 const socket = io("http://localhost:3031");
 import Swal from "sweetalert2";
 
-
 export default function Upload() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState("");
@@ -28,7 +27,6 @@ export default function Upload() {
     });
   };
 
-
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
     if (selectedFile != undefined) {
@@ -36,8 +34,6 @@ export default function Upload() {
       setPhoto(selectedFile);
     }
   };
-
-
 
   return (
     <div>
@@ -89,6 +85,5 @@ export default function Upload() {
         </form>
       </div>
     </div>
-
   );
 }

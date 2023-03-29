@@ -6,13 +6,10 @@ import ThemeContext from "@/context/ThemeContext";
 import Cookies from "js-cookie";
 import { useState, useEffect, useContext } from "react";
 
-
 function Feed() {
 
   const [cookie, setCookie] = useState("");
   const theme = useContext(ThemeContext);
-
-
 
   useEffect(() => {
     const tokenUsername = Cookies.get("tokenUsername");
@@ -38,7 +35,6 @@ function Feed() {
             <Suggestions/>
             </div>
         </section>
-
     </main>
   )
 }

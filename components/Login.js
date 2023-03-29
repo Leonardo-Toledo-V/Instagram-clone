@@ -82,8 +82,6 @@ function Login() {
     };
   }, [ref]);
 
-
-
   return (
     
     <div className="w-full h-full flex flex-wrap mt-2  overflow-auto items-center justify-center">

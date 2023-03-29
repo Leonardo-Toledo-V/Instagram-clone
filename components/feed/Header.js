@@ -30,7 +30,6 @@ function Header({addTheme}) {
     addTheme(!theme)
   }
 
-
   return (
     <div className={`shadow-md border-b bg-white sticky top-0 z-50 text-black ${theme ? 'dark:bg-black dark:text-white dark:border-zinc-900' : ''}`}>
       {/* Left starts */}
@@ -49,6 +48,7 @@ function Header({addTheme}) {
             src="/logo-white.png"
             layout="fill"
             objectFit="contain"
+            alt="logo"
           />
         </div>
           

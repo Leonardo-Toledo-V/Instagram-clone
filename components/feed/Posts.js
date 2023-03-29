@@ -5,7 +5,6 @@ const socket = io("http://localhost:3031");
 import Cookies from "js-cookie";
 const token = Cookies.get("token");
 
-
 function Posts() {
     const [testData, setTestData] = useState([]);
 
@@ -30,12 +29,10 @@ function Posts() {
                 img={data.data.attributes.media}
                 description={data.data.attributes.caption}
               />
-           </div> 
-           
+           </div>
         );
     });
     
-
     return (
         <div>
             {testData.map((post) => (

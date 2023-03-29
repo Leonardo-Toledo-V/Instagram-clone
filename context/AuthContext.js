@@ -4,7 +4,6 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
   
-  
   const [user, setUser] = useState(()=>{
     try {
       const userLocalStorage = localStorage.getItem('userStorage')
@@ -43,10 +42,6 @@ export const AuthContextProvider = ({children}) => {
   useEffect(() =>{
     localStorage.setItem('fullNameStorage', JSON.stringify(fullName));
   },[fullName]);
-
-
-
-
 
   return(
     <AuthContext.Provider value={{user,setUser, avatar, setAvatarr, fullName,setFullName}}>

@@ -8,7 +8,6 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 import { useRouter } from "next/router";
 
-
 function register() {
   const router = useRouter();
 
@@ -17,7 +16,6 @@ function register() {
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();

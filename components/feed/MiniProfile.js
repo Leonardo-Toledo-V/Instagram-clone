@@ -3,8 +3,6 @@ import Cookies from 'js-cookie';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
 
-
-
 function MiniProfile() {
   const {user, avatar,fullName} = useContext(AuthContext)
   const router = useRouter();
