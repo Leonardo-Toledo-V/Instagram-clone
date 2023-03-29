@@ -4,20 +4,59 @@ import Input from "@/components/login/Input";
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
-
+import axios from 'axios';
+import Swal from 'sweetalert2'
+import { useRouter } from "next/router";
 
 
 function register() {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  const enable = email && username && fullName && password;
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url = 'http://localhost:3030/auth/signup';
+    const form = new FormData();
+    form.append('username', username);
+    form.append('name', fullName);
+    form.append('email', email);
+    form.append('password', password);
+    form.append('avatar', selectedFile);
+
+    axios.post(url, form).then(function (response) {
+      const status = response.data.status;
+      const message = response.data.data.message
+      if (status) {
+        Swal.fire({
+          icon: 'success',
+          title: message,
+          showConfirmButton: false,
+          timer: 1500
+        });
+        router.push('/');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: message,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  const enable = email && username && fullName && password.length >= 8;
 
   return (
-  
+
     <div className="w-full h-full flex flex-wrap   overflow-auto items-center justify-center">
       <Head>
         <title>Instagram</title>
@@ -38,12 +77,12 @@ function register() {
             <span className="text-[14px]">Log in with Facebook</span>
           </a>
           <Or />
-          <form  className="mt-4">
+          <form onSubmit={handleSubmit} className="mt-4">
             <Input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              label="Phone number or email"
+              label="Email"
             />
             <Input
               type="text"
@@ -63,13 +102,17 @@ function register() {
               onChange={(e) => setPassword(e.target.value)}
               label="Password"
             />
+            <Input
+              type="file"
+              accept=".jpg, .png, .jpeg"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+            />
             <p className="text-center text-[12px] text-[#8e8e8e] mt-3 mb-5">
               People who use our service may have uploaded your contact
               information to Instagram. <a className="font-semibold"> Learn More</a>
             </p>
             <p className="text-center text-[12px] text-[#8e8e8e] mb-5">
               By signing up, you agree to our Terms , <a className="font-semibold">Privacy</a> <a className="font-semibold">Policy</a> and <a className="font-semibold">Cookies Policy .</a>
-              
             </p>
             <button
               type="submit"
@@ -87,7 +130,7 @@ function register() {
           </Link>
         </div>
       </div>
-      </div>
+    </div>
 
   )
 }

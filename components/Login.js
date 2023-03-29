@@ -2,24 +2,60 @@ import Input from "@/components/login/Input";
 import Or from "@/components/login/Or";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AiFillFacebook } from "react-icons/ai";
 import {useRouter } from 'next/router';
-
+import axios from "axios";
+import Cookies from 'js-cookie';
+import Swal from 'sweetalert2';
+import { AuthContext } from "@/context/AuthContext";
 
 function Login() {
-
+  const {setUser, setAvatarr,setFullName} = useContext(AuthContext);
   const ref = useRef();
-
+  const router = useRouter();
   const [formData,setFormData] = useState({
     username: '',
     password: ''
   })
-  useEffect(()=>{
-    if(formData.username != '' && formData.password !=''){
-        <Link href='/feed'></Link>
-    }
-  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url='http://localhost:3030/auth/login';
+      axios.post(url,{
+        email: formData.username,
+        password: formData.password,
+      }).then(function (response){
+        const status = response.data.status;
+        const value = response.data.data.token;
+        setUser (response.data.data.username); 
+        setAvatarr(response.data.data.avatar);
+        setFullName(response.data.data.name);
+          if(status){
+            Cookies.set('token', value, { 
+              expires: 1,
+              domain: "localhost",
+              secure: false,
+            });
+            Swal.fire({
+              icon: 'success',
+              title: 'login success',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            router.push('/feed');
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'User or email are invalid',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+      }).catch(function (error) {
+        console.log(error);
+      });
+  }
 
   const images = [
     "img1.png",
@@ -27,7 +63,6 @@ function Login() {
     "img3.png",
     "img4.png",
   ];
-  const router = useRouter()
 
   const enable = formData.username.length >= 5  && formData.password.length >= 8;
 
@@ -47,10 +82,7 @@ function Login() {
     };
   }, [ref]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    router.push('/feed');
-  }
+
 
   return (
     
@@ -90,7 +122,7 @@ function Login() {
               type="text"
               value={formData.username}
               onChange={(e) => setFormData({...formData, username: e.target.value})}
-              label="Phone number, username or email"
+              label="Username or email"
             />
             <Input
               type="password"
@@ -117,7 +149,6 @@ function Login() {
           </form>
         </div>
 
-
         <div className="mt-[10px] text-[14px] bg-white border-[#dbdbdb] h-[63px] border gap-x-1 flex items-center justify-center">
           Don't have an account?{" "}
           <Link href="/register" className="font-semibold text-[#0095f6]">
@@ -130,5 +161,4 @@ function Login() {
 
   )
 }
-
 export default Login;

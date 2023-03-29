@@ -16,7 +16,7 @@ function Input({label,type = "text" ,...props}) {
   return (
     <label className="relative  mb-2 flex items-center bg-zinc-50 border rounded-sm focus-within:border-gray-400 ">
       <input
-        required={true}
+        
         type={inputType}
         className="bg-[#fafafa] m-0 valid:pt-[20px]  text-[12px]  w-full  px-2 outline-none  h-9 p-[9px_0_7px_8px] peer"
         {...props}        
@@ -25,7 +25,7 @@ function Input({label,type = "text" ,...props}) {
         {label}
       </small>
       {type === 'password' && props?.value && (
-        <div type="button" onClick={() => setShow(show => !show)} className="cursor-pointer  select-none h-full pr-2 text-sm font-semibold">
+        <div type="button" onClick={() => setShow(show => !show)} className="cursor-pointer select-none h-full pr-2 text-sm font-semibold">
             {show ? 'Hide' : 'Show'}
         </div>
       )}
