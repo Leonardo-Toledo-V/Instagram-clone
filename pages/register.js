@@ -16,25 +16,26 @@ function register() {
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState(null);
   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url='http://localhost:3030/auth/signup';
+    const form = new FormData();
+    form.append('username', username);
+    form.append('name', fullName);
+    form.append('email', email);
+    form.append('password', password);
+    form.append('avatar', avatar);
 
-    axios.post(url,{
-      username: username,
-      email: email,
-      password: password,
-      name: fullName,
-      avatar: avatar
-    }).then(function (response){
+    axios.post(url,form).then(function (response){
       const status = response.data.status;
+      const message = response.data.data.message
         if(status){
           Swal.fire({
             icon: 'success',
-            title: 'User created successfully',
+            title: message,
             showConfirmButton: false,
             timer: 1500
           });
@@ -42,7 +43,7 @@ function register() {
         }else{
           Swal.fire({
             icon: 'error',
-            title: 'User or email are invalid',
+            title: message,
             showConfirmButton: false,
             timer: 1500
           });

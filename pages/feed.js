@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { useState } from 'react';
 import Feed from '../components/Feed';
 import ThemeContext from '@/context/ThemeContext';
-import { AuthContextProvider } from '@/context/AuthContext';
 
 function feed() {
   const [theme, setTheme] = useState(true);

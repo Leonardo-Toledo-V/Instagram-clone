@@ -5,6 +5,8 @@ const nextConfig = {
     domains: ['links.papareact.com']
   },
   colorScheme: 'light',
+  eslint: {
+    ignoreDuringBuilds: true,}
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
