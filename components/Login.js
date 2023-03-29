@@ -35,7 +35,7 @@ function Login() {
           if(status){
             Cookies.set('token', value, { 
               expires: 1,
-              domain: "localhost",
+              domain: `${config.host}`,
               secure: false,
             });
             Swal.fire({
@@ -116,7 +116,7 @@ function Login() {
       <div className="w-[350px] h-[555px] ">
         <div className="p-[20px_40px]   bg-white border-[#dbdbdb] border">
           <a className="flex justify-center mb-[31px] mt-[30px] ">
-            <img src="https://links.papareact.com/ocw" />
+            <img src="logo-white.png" />
           </a>
           <form onSubmit={handleSubmit}>
             <Input
