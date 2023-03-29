@@ -3,33 +3,35 @@ import {
   SearchIcon,
   PlusCircleIcon,
   UserGroupIcon,
-  MoonIcon ,
   PaperAirplaneIcon,
-  MenuIcon,
   HomeIcon,
-  SunIcon,
+  HeartIcon,
+  LogoutIcon
 } from "@heroicons/react/outline";
 import { Fragment, useContext, useEffect, useState } from "react";
 import Modal from "../Modal";
 import Upload from "../Upload";
-import ThemeContext from "@/context/ThemeContext";
 import { AuthContext } from "@/context/AuthContext";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
-function Header({addTheme}) {
+function Header() {
   const [showModal, setShowModal] = useState(false);
-  const theme = useContext(ThemeContext);
   const {avatar} = useContext(AuthContext);
+  const router = useRouter();
 
   const [image, setImage] = useState('');
   useEffect(() => {
     setImage(avatar);
   }, []);
 
-
-  const handleTheme=()=>{
-    addTheme(!theme)
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    Cookies.remove('token');
+    localStorage.setItem('userLocalStorage', '');
+    localStorage.setItem('photoLocalStorage', '');
+    router.push('/');
   }
-
 
   return (
     <div className='shadow-md border-b bg-white sticky top-0 z-50 text-black '>
@@ -62,14 +64,11 @@ function Header({addTheme}) {
         <HomeIcon className='itemsBtn'/>
         
         <Fragment>
-        <PlusCircleIcon className="itemsBtn" onClick={()=>setShowModal(true)}/>
+        <PlusCircleIcon className="itemsMovil" onClick={()=>setShowModal(true)}/>
         <Modal isVisible={showModal} onClose={()=> setShowModal(false)}>
           <Upload></Upload>
         </Modal>
         </Fragment>
-        
-        {/* This MenuIcon doesn't works but I'm going to add the implementation */}
-        <MenuIcon className='h-6 sm:hidden cursor-pointer'/>
         <div className='relative itemsBtn'>
         <PaperAirplaneIcon className="itemsBtn rotate-45"/>
         {/* Here we can add dynamic notifications if we want it */}
@@ -77,12 +76,9 @@ function Header({addTheme}) {
           bg-red-500 rounded-full flex items-center 
           justify-center animate-pulse text-white' >3</div>
         </div>
-        <UserGroupIcon className="itemsBtn" />
-        {theme ? (
-          <SunIcon  className="itemsBtn" onClick={handleTheme}/>
-        ):(
-          <MoonIcon  className="itemsBtn" onClick={handleTheme}/>
-        )}
+        <UserGroupIcon className="itemsBtn"/>
+        <HeartIcon className="itemsBtn"/>
+        <LogoutIcon className="logout" onClick={handleLogout}/>
         
         {/* Here we gonna add the profile photo with the API */}
         <img src={image} 
