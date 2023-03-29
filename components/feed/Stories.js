@@ -1,11 +1,8 @@
-import ThemeContext from '@/context/ThemeContext';
 import {faker} from '@faker-js/faker';
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Story from './Story';
 
 function Stories() {
-
-  const theme = useContext(ThemeContext);
   const [suggestions, setSuggestions] = useState([]);
   /* I'm using faker because i don't have the API yet.
      So, I need to create the interface and I need a model.

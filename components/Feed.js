@@ -2,17 +2,13 @@ import MiniProfile from "@/components/feed/MiniProfile"
 import Posts from "@/components/feed/Posts"
 import Stories from "@/components/feed/Stories"
 import Suggestions from "@/components/feed/Suggestions"
-import ThemeContext from "@/context/ThemeContext";
 import Cookies from "js-cookie";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
 
 function Feed() {
 
   const [cookie, setCookie] = useState("");
-  const theme = useContext(ThemeContext);
-
-
 
   useEffect(() => {
     const tokenUsername = Cookies.get("tokenUsername");

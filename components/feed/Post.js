@@ -1,10 +1,6 @@
-import ThemeContext from "@/context/ThemeContext";
 import {BookmarkIcon, ChatIcon, DotsHorizontalIcon, EmojiHappyIcon, HeartIcon, PaperAirplaneIcon,}from "@heroicons/react/outline";
-import { HeartIcon as HeartIconFilled} from "@heroicons/react/solid"
-import { useContext } from "react";
 
 function Post(props) {
-  const theme = useContext(ThemeContext);
 
   return (
     <div className='bg-white my-7 border rounded-sm'>

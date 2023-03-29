@@ -153,7 +153,6 @@ function Login() {
         <div className="mt-[10px] text-[14px] bg-white border-[#dbdbdb] h-[63px] border gap-x-1 flex items-center justify-center">
           Don't have an account?{" "}
           <Link href="/register" className="font-semibold text-[#0095f6]">
-            {" "}
             Sign up{" "}
           </Link>
         </div>

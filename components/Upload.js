@@ -28,6 +28,7 @@ export default function Upload() {
       timer: 1500
     });
     
+    
 
   };
 
