@@ -3,30 +3,29 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import { io } from 'socket.io-client';
 const socket = io("http://localhost:3031");
+import Swal from "sweetalert2";
 
-/* btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    socket.emit("POST", {
-        caption: text.value,
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJuYW1lIjoiTGVvbmFyZG8iLCJvd25lciI6Ikxlb25hcmRvIFRvbGVkbyIsImF2YXRhciI6Imh0dHBzOi8vaWctY2xvbmUtcmVzb3VyY2VzLnMzLmFtYXpvbmF3cy5jb20vYXZhdGFycy8xNjc5OTc4NzI5MDAwLWdpdGh1Yi1pbWFnZS5wbmciLCJpYXQiOjE2Nzk5Nzg3MzA4MzIsImV4cCI6MTY4MTY1ODcxMzE2Mn0.Bsmi-vrhj9HA6YC8mrPQeRQ8BzWcxs7l4nkmCTu5DLo",
-        media: fl.files[0]
-    })
-});
-*/
 
-export default function Home() {
+export default function Upload() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState("");
+  const [photo, setPhoto] = useState(null);
 
   const handleSubmit = (e)=>{
     e.preventDefault();
     const token = Cookies.get('token');
-    console.log("entra por aquí")
-    socket.emit("POST", {
+    const params = {
       caption: comment,
-      token: token,
-      media: selectedImage
-  });
+      token:token,
+      media: photo
+  }
+    socket.emit("POST", params);
+    Swal.fire({
+      icon: 'success',
+      title: 'Publicación subida correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    });
   };
 
 
@@ -34,6 +33,7 @@ export default function Home() {
     const selectedFile = event.target.files[0];
     if (selectedFile != undefined) {
       setSelectedImage(URL.createObjectURL(selectedFile));
+      setPhoto(selectedFile);
     }
   };
 
