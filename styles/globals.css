@@ -8,6 +8,16 @@
         cursor-pointer hover:scale-125
         transition-all duration-150 ease-out
     }
+    .itemsMovil{
+        @apply h-6 sm:inline-flex
+        cursor-pointer hover:scale-125
+        transition-all duration-150 ease-out
+    }
+    .logout{
+        @apply h-6 sm:hidden
+        cursor-pointer hover:scale-125
+        transition-all duration-150 ease-out
+    }
     .itemHistories{
         @apply h-14 w-14 rounded-full p-[2px]
         border-red-200 bg-gradient-to-r from-red-600
