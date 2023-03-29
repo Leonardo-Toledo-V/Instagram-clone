@@ -21,6 +21,7 @@ function Posts() {
         // Escucha los eventos "Feed" y actualiza los datos
         socket.on("Feed", (msg)=>{
             setTestData(prevTestData => [...prevTestData, msg.data.attributes]);
+            
         });
         
     },[]);

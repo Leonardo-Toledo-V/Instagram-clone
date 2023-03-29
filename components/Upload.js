@@ -81,13 +81,12 @@ export default function Upload() {
         </div>
       </div>
       <div className="flex justify-center items-center" >
-        <form className='flex items-center p-4  border-2 shadow-lg  w-[500px] mb-4'>
+        <form className='flex items-center p-4  border-2 shadow-lg  sm:w-[500px] mb-4'>
           <EmojiHappyIcon className='h-7' />
           <input type="text"
            onChange={(e) => setComment(e.target.value)}
           className='border-none flex-1 focus:ring-0
-          outline-none
-          ' placeholder="Add a comment..." />
+          outline-none ' placeholder="Add a comment..." />
           <button onClick={handleSubmit} className=' font-semibold text-blue-400'>Post</button>
         </form>
       </div>
