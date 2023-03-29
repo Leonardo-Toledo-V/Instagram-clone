@@ -25,7 +25,7 @@ function Input({label,type = "text" ,...props}) {
         {label}
       </small>
       {type === 'password' && props?.value && (
-        <div type="button" onClick={() => setShow(show => !show)} className="cursor-pointer  select-none h-full pr-2 text-sm font-semibold">
+        <div type="button" onClick={() => setShow(show => !show)} className="cursor-pointer select-none h-full pr-2 text-sm font-semibold">
             {show ? 'Hide' : 'Show'}
         </div>
       )}

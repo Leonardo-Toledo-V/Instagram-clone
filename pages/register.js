@@ -16,7 +16,7 @@ function register() {
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
   
 
   const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ function register() {
     form.append('name', fullName);
     form.append('email', email);
     form.append('password', password);
-    form.append('avatar', avatar);
+    form.append('avatar', selectedFile);
 
     axios.post(url,form).then(function (response){
       const status = response.data.status;
@@ -85,7 +85,7 @@ function register() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              label="Phone number or email"
+              label="Email"
             />
             <Input
               type="text"
@@ -106,10 +106,9 @@ function register() {
               label="Password"
             />
              <Input
-              type="file"
-              accept=".jpg, .png, .jpeg"
-              value={avatar}
-              onChange={(e) => setAvatar(e.target.value)}
+             type="file"
+             accept=".jpg, .png, .jpeg"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
             />
             <p className="text-center text-[12px] text-[#8e8e8e] mt-3 mb-5">
               People who use our service may have uploaded your contact
