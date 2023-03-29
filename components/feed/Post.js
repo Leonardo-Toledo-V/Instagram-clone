@@ -7,7 +7,7 @@ function Post(props) {
   const theme = useContext(ThemeContext);
 
   return (
-    <div className={`bg-white my-7 border rounded-sm ${theme ? 'dark:bg-black dark:text-white dark:border-none':''}`}>
+    <div className='bg-white my-7 border rounded-sm'>
         {/* Header */}
         <div className="flex items-center p-5 ">
             <img src={props.userImg} className='rounded-full h-12 w-12 object-contain
@@ -40,8 +40,8 @@ function Post(props) {
         {/* Comment box */}
         <form className='flex items-center p-4 '>
           <EmojiHappyIcon className='h-7'/>
-          <input type="text" className={`border-none flex-1 focus:ring-0
-          outline-none  ${theme ? 'dark:bg-black':''}`}
+          <input type="text" className='border-none flex-1 focus:ring-0
+          outline-none'
            placeholder="Add a comment..."/>
           <button className=' font-semibold text-blue-400'>Post</button>
         </form>

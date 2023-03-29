@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 
 function Suggestions() {
     const [suggestions, setSuggestions] = useState([]);
-    /* I'm using faker because i don't have the API yet.
-       So, I need to create the interface and I need a model.
-       When we have the API, I'm going to change it
-    */
+ 
     const generateFakeUser = () => {
       return {
         id: faker.datatype.uuid(),
